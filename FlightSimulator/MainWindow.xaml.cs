@@ -36,8 +36,6 @@ namespace FlightSimulator
             Window settingsWin = new SettingsWindow();
             settingsWin.Show();
         }
-
-
         
     }
 }

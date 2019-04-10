@@ -27,7 +27,9 @@
             <TabItem Header="Manual">
                 <controls:Joystick ></controls:Joystick>
             </TabItem>
-            <TabItem Header="Auto Pilot"></TabItem>
+            <TabItem Header="Auto Pilot">
+                <controls:AutoPilot></controls:AutoPilot>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
