@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FlightSimulator.Model;
+using FlightSimulator.ViewModels.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,12 @@ namespace FlightSimulator.Views.Windows
     /// </summary>
     public partial class SettingsWindow : Window
     {
+        SettingsWindowViewModel vm;
         public SettingsWindow()
         {
             InitializeComponent();
+            vm = new SettingsWindowViewModel(Model.ApplicationSettingsModel.Instance, this);
+            this.DataContext = vm;
         }
 
     }
