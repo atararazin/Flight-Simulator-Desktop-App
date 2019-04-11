@@ -22,7 +22,7 @@
         <TextBlock Text="Flight Simulator" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
         <controls:FlightBoard Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"></controls:FlightBoard>
         <Button x:Name="ConnectButton" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Margin="10" Command="{Binding ConnectCommand}"> Connect </Button>
-        <Button x:Name="SettingsButton" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="10" Click="SettingsButton_Click"> Settings </Button>
+        <Button x:Name="SettingsButton" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="10" Command="{Binding SettingsCommand}"> Settings </Button>
         <TabControl Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="3">
             <TabItem Header="Manual">
                 <controls:Joystick ></controls:Joystick>
