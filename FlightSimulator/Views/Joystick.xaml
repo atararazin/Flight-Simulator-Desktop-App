@@ -134,10 +134,10 @@
                 </Canvas.Resources>
             </Canvas>
         </Canvas>
-        <Slider Width="300" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="70" IsSnapToTickEnabled="True" 
-                Minimum="-1" Maximum="1" TickPlacement="Both"  TickFrequency="0.01" AutoToolTipPlacement="BottomRight"/>
+        <Slider Value="{Binding RudderValue}" Width="300" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="70" IsSnapToTickEnabled="True" 
+                Minimum="-1.0" Maximum="1.0" TickPlacement="Both"  TickFrequency="0.01" AutoToolTipPlacement="BottomRight"/>
 
-        <Slider Height="300" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="46,80,0,70" Minimum="-1" Maximum="1"
+        <Slider Value="{Binding ThrottleValue}" Height="300" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="46,80,0,70" Minimum="-1.0" Maximum="1.0"
                 IsSnapToTickEnabled="True"  TickPlacement="Both"  TickFrequency="0.01" AutoToolTipPlacement="BottomRight"/>
 
         <TextBlock FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="30">← rudder →</TextBlock>
