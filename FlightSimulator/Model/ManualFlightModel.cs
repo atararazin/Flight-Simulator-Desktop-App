@@ -19,7 +19,15 @@ namespace FlightSimulator.Model
         /// </summary>
         public ManualFlightModel()
         {
-            client = new TcpClient("127.0.0.1", 5402);
+            try
+            {
+                client = new TcpClient("127.0.0.1", 5402);
+            }
+            catch
+            {
+                client = null;
+            }
+
         }
 
 
@@ -72,8 +80,8 @@ namespace FlightSimulator.Model
         private void SendMessage(string message)
         {
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
-            NetworkStream stream = client.GetStream();
-            stream.Write(data, 0, data.Length);
+            NetworkStream stream = client?.GetStream();
+            stream?.Write(data, 0, data.Length);
         }
 
     }
