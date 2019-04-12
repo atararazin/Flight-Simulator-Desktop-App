@@ -1,5 +1,6 @@
 ﻿using FlightSimulator.Model.EventArgs;
 using System;
+using FlightSimulator.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -108,6 +109,7 @@ namespace FlightSimulator.Views
         private double _prevAileron, _prevElevator;
         private double canvasWidth, canvasHeight;
         private readonly Storyboard centerKnob;
+        private JoystickViewModel vm;
 
         public Joystick()
         {
@@ -118,6 +120,10 @@ namespace FlightSimulator.Views
             Knob.MouseMove += Knob_MouseMove;
 
             centerKnob = Knob.Resources["CenterKnob"] as Storyboard;
+
+            // Add the ViewModel as the Data context
+            vm = new JoystickViewModel();
+            this.DataContext = vm;
         }
 
         private void Knob_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
