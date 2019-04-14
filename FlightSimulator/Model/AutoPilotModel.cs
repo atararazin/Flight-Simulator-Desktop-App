@@ -25,7 +25,7 @@ namespace FlightSimulator.Model
 
         public void Send()
         {
-            //send to command channel
+            CommandsChannel.SendCommands(Instructions);
         }
         public void Clear()
         {

@@ -28,6 +28,5 @@ namespace FlightSimulator.Views.Windows
             vm = new SettingsWindowViewModel(Model.ApplicationSettingsModel.Instance, this);
             this.DataContext = vm;
         }
-
     }
 }
