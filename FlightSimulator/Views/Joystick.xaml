@@ -158,7 +158,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1">
-            <Slider Width="300" Orientation="Horizontal" HorizontalAlignment="Center" 
+            <Slider Value="{Binding RudderVal}" Width="300" Orientation="Horizontal" HorizontalAlignment="Center" 
                     VerticalAlignment="Bottom" IsSnapToTickEnabled="True" 
                 Minimum="-1" Maximum="1" TickPlacement="Both"  TickFrequency="0.01" 
                     AutoToolTipPlacement="BottomRight"/>
@@ -177,7 +177,7 @@
                     <RotateTransform Angle="90"/>
                 </TextBlock.LayoutTransform>
             </TextBlock>
-            <Slider Width="300" HorizontalAlignment="Right" Grid.Column="1"
+            <Slider Value="{Binding ThrottleVal}" Width="300" HorizontalAlignment="Right" Grid.Column="1"
                     IsSnapToTickEnabled="True" 
                 Minimum="-1" Maximum="1" TickPlacement="Both"  TickFrequency="0.01" 
                     AutoToolTipPlacement="BottomRight">
