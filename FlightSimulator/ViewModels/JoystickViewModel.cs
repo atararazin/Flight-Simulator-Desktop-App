@@ -10,8 +10,7 @@ namespace FlightSimulator.ViewModels
     class JoystickViewModel : BaseNotify
     {
         private ManualFlightModel model;
-        //private double _throttleVal;
-        //private double _rudderVal;
+        
 
         public JoystickViewModel()
         {
@@ -20,7 +19,6 @@ namespace FlightSimulator.ViewModels
 
         public double ThrottleVal
         {
-            //get { return this._throttleVal; }
             get { return model.ThrottleValue; }
             set
             {
@@ -32,17 +30,33 @@ namespace FlightSimulator.ViewModels
 
         public double RudderVal
         {
-            //get { return this._rudderVal; }
             get { return model.RudderValue; }
             set
             {
-                //this._rudderVal = value;
                 model.RudderValue = value;
                 Console.WriteLine(value);
             }
         }
 
+        public double AileronVal
+        {
+            get { return model.AileronValue; }
+            set
+            {
+                model.AileronValue = value;
+                Console.WriteLine(value);
+            }
+        }
 
+        public double ElevatorVal
+        {
+            get { return model.ElevatorValue; }
+            set
+            {
+                model.ElevatorValue = value;
+                Console.WriteLine(value);
+            }
+        }
 
 
     }

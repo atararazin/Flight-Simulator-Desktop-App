@@ -12,6 +12,8 @@ namespace FlightSimulator.Model
         private TcpClient client;
         private double _throttleVal;
         private double _rudderVal;
+        private double _aileronVal;
+        private double _elevatorVal;
 
         /// <summary>
         /// Constructor. Connect to the simulator sever port.
@@ -54,6 +56,29 @@ namespace FlightSimulator.Model
             }
         }
 
+        public double AileronValue
+        {
+            get { return _aileronVal; }
+            set
+            {
+                _aileronVal = value;
+                string message = BuildMessage("aileron", value);
+                SendMessage(message);
+
+            }
+        }
+
+        public double ElevatorValue
+        {
+            get { return _elevatorVal; }
+            set
+            {
+                _elevatorVal = value;
+                string message = BuildMessage("elevator", value);
+                SendMessage(message);
+
+            }
+        }
 
         /// <summary>
         /// The function builds the message to send
@@ -64,11 +89,8 @@ namespace FlightSimulator.Model
         private string BuildMessage(string propertyName, double value)
         {
             string message = "";
-            if (propertyName == "rudder")
-                message =  "set " + "/controls/flight/rudder " + value + value + "\r\n";
-
-            if (propertyName == "throttle")
-                message =  "set " + "/controls/engines/engine/throttle" + value + value + "\r\n";
+            message = "set " + FlightCommands.mapper[propertyName] + " " + value + "\r\n";
+            
             Console.WriteLine(message);
             return message;
         }
