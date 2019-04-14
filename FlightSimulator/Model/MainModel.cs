@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -17,12 +18,16 @@ namespace FlightSimulator.Model
         public void Connect()
         {
             Task taskClient = new Task(() => {
-                int port = Properties.Settings.Default.FlightCommandPort;
-                IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5402);
-                TcpClient client = new TcpClient();
-                client.Connect(ep);
-                Console.WriteLine("You are connected");
-                client.Close();
+            int port = Properties.Settings.Default.FlightCommandPort;
+            string ip = Properties.Settings.Default.FlightServerIP;
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), port);
+            TcpClient client = new TcpClient();
+            client.Connect(ep);
+            Console.WriteLine("You are connected");
+            NetworkStream stream = client.GetStream();
+            BinaryWriter writer = new BinaryWriter(stream);
+            writer.Write("set controls/flight/rudder -1\r\n");
+            client.Close();
             });
 
             taskClient.Start();
