@@ -24,10 +24,10 @@ namespace FlightSimulator.ViewModels
 
         public string VM_Instructions
         {
-            get { return model.Instructions; }
+            get { return model.singleInstruction; }
             set
             {
-                model.Instructions = value;
+                model.singleInstruction = value;
                 NotifyPropertyChanged("Instructions");
             }
         }
@@ -57,5 +57,20 @@ namespace FlightSimulator.ViewModels
         {
             model.Clear();
         }
+
+        private ICommand _enterCommand;
+        public ICommand EnterCommand
+        {
+            get
+            {
+                return _enterCommand ?? (_enterCommand = new CommandHandler(() => OnEnter()));
+            }
+        }
+        private void OnEnter()
+        {
+            Console.WriteLine("enter was pressed");
+            model.Instructions.Add(VM_Instructions);
+        }
+
     }
 }

@@ -9,7 +9,7 @@ namespace FlightSimulator.Model.Interface
 {
     interface IAutoPilotModel : INotifyPropertyChanged
     {
-        string Instructions { get; set; }
+        List<string> Instructions { get; set; }
         void Send();
         void Clear();
 

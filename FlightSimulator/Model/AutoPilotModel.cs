@@ -11,8 +11,11 @@ namespace FlightSimulator.Model
     class AutoPilotModel : IAutoPilotModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private string _instructions;
-        public string Instructions
+
+        public string singleInstruction;
+
+        private List<string> _instructions = new List<string>();
+        public List<string> Instructions
         {
             get { return this._instructions; }
             set
@@ -22,14 +25,17 @@ namespace FlightSimulator.Model
             }
         }
 
-
         public void Send()
         {
-            CommandsChannel.SendCommands(Instructions);
+            foreach (string i in Instructions)
+            {
+                CommandsChannel.SendCommands(i);
+            }
         }
+
         public void Clear()
         {
-            Instructions = "";
+            _instructions.Clear();
         }
 
         public void NotifyPropertyChanged(string propName)
