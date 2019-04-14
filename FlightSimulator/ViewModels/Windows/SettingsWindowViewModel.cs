@@ -2,6 +2,7 @@
 using FlightSimulator.Model.Interface;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +20,14 @@ namespace FlightSimulator.ViewModels.Windows
         {
             this.model = model;
             this.settingsWindow = SettingsWindow;
+            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
+            {
+                NotifyPropertyChanged("VM_" + e.PropertyName);
+            };
 
         }
 
-        public string FlightServerIP
+        public string VM_FlightServerIP
         {
             get { return model.FlightServerIP; }
             set
@@ -32,7 +37,7 @@ namespace FlightSimulator.ViewModels.Windows
             }
         }
 
-        public int FlightCommandPort
+        public int VM_FlightCommandPort
         {
             get { return model.FlightCommandPort; }
             set
@@ -42,7 +47,7 @@ namespace FlightSimulator.ViewModels.Windows
             }
         }
 
-        public int FlightInfoPort
+        public int VM_FlightInfoPort
         {
             get { return model.FlightInfoPort; }
             set

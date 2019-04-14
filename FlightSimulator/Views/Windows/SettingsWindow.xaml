@@ -20,9 +20,9 @@
         <TextBlock Padding="3" Margin="3">Flight Server IP:</TextBlock>
         <TextBlock Grid.Row="1" Padding="3" Margin="3">Flight Info Port:</TextBlock>
         <TextBlock Grid.Row="2" Padding="3" Margin="3">Flight Command Port:</TextBlock>
-        <TextBox Text="{Binding FlightServerIP}" Grid.Column="2" Padding="3" Margin="3"></TextBox>
-        <TextBox Text="{Binding FlightInfoPort}" Grid.Row="1" Grid.Column="2" Padding="3" Margin="3"></TextBox>
-        <TextBox Text="{Binding FlightCommandPort}" Grid.Row="2" Grid.Column="2" Padding="3" Margin="3"></TextBox>
+        <TextBox Text="{Binding VM_FlightServerIP}" Grid.Column="2" Padding="3" Margin="3"></TextBox>
+        <TextBox Text="{Binding VM_FlightInfoPort}" Grid.Row="1" Grid.Column="2" Padding="3" Margin="3"></TextBox>
+        <TextBox Text="{Binding VM_FlightCommandPort}" Grid.Row="2" Grid.Column="2" Padding="3" Margin="3"></TextBox>
         <Button Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" Margin="5" Padding="5" Command="{Binding ClickCommand}">OK</Button>
         <Button Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Padding="5" Command="{Binding CancelCommand}">Cancel </Button>
     </Grid>
