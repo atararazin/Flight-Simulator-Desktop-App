@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlightSimulator.Model.Interface
 {
-    interface IAutoPilotModel:INotifyPropertyChanged
+    interface IAutoPilotModel : INotifyPropertyChanged
     {
         string Instructions { get; set; }
         void Send();

@@ -15,7 +15,9 @@ namespace FlightSimulator.Model
         public string Instructions
         {
             get { return this._instructions; }
-            set { this._instructions = value;
+            set
+            {
+                this._instructions = value;
                 NotifyPropertyChanged("Instructions");
             }
         }

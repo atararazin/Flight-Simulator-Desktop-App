@@ -9,13 +9,13 @@ using System.Windows.Input;
 
 namespace FlightSimulator.ViewModels
 {
-    class AutoPilotViewModel:BaseNotify
+    class AutoPilotViewModel : BaseNotify
     {
         private AutoPilotModel model;
         public AutoPilotViewModel(AutoPilotModel model)
         {
             this.model = model;
-            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) 
+            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
             {
                 NotifyPropertyChanged("VM_" + e.PropertyName);
             };
