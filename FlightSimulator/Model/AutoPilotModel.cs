@@ -11,31 +11,39 @@ namespace FlightSimulator.Model
     class AutoPilotModel : IAutoPilotModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        private List<string> _instructionsList;
 
-        public string singleInstruction;
-
-        private List<string> _instructions = new List<string>();
-        public List<string> Instructions
+        private string _instructionsString;
+        public string InstructionsString
         {
-            get { return this._instructions; }
+            get { return this._instructionsString; }
             set
             {
-                this._instructions = value;
+                this._instructionsString = value;
                 NotifyPropertyChanged("Instructions");
             }
         }
 
+        private List<string> turnStringintoList(string s)
+        {
+            string[] result = s.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            return new List<string>(result);
+        }
+
+
         public void Send()
         {
-            foreach (string i in Instructions)
+            this._instructionsList = turnStringintoList(this._instructionsString);
+            foreach (string i in this._instructionsList)
             {
                 CommandsChannel.SendCommands(i);
+                Console.WriteLine(i);
             }
         }
 
         public void Clear()
         {
-            _instructions.Clear();
+            this._instructionsString = "";
         }
 
         public void NotifyPropertyChanged(string propName)
