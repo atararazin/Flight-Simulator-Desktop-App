@@ -23,7 +23,7 @@ namespace FlightSimulator.Model
             int port = Properties.Settings.Default.FlightCommandPort;
             string ip = Properties.Settings.Default.FlightServerIP;
             IPAddress ipAddr = IPAddress.Parse(ip);
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), 5402);//MUST CHANGE THIS!!
+            IPEndPoint ep = new IPEndPoint(ipAddr, port);
             client = new TcpClient();
             client.Connect(ep);
             Console.WriteLine("You are connected");
