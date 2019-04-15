@@ -91,7 +91,7 @@ namespace FlightSimulator.Model
             string message = "";
             message = "set " + FlightCommands.mapper[propertyName] + " " + value + "\r\n";
             
-            Console.WriteLine(message);
+            //Console.WriteLine(message);
             return message;
         }
 

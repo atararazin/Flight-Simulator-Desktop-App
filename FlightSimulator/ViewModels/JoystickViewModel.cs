@@ -22,9 +22,8 @@ namespace FlightSimulator.ViewModels
             get { return model.ThrottleValue; }
             set
             {
-                //this._throttleVal = value;
                 model.ThrottleValue = value;
-                Console.WriteLine(value);
+                NotifyPropertyChanged("ThrottleVal");
             }
         }
 
@@ -34,27 +33,29 @@ namespace FlightSimulator.ViewModels
             set
             {
                 model.RudderValue = value;
-                Console.WriteLine(value);
+                NotifyPropertyChanged("RudderVal");
             }
         }
 
         public double AileronVal
         {
-            get { return model.AileronValue; }
+            get { return Math.Round(model.AileronValue, 2); }
             set
             {
-                model.AileronValue = value;
-                Console.WriteLine(value);
+                double normalized = value / 100;
+                model.AileronValue = normalized;
+                NotifyPropertyChanged("AileronVal");
             }
         }
 
         public double ElevatorVal
         {
-            get { return model.ElevatorValue; }
+            get { return Math.Round(model.ElevatorValue, 2); }
             set
             {
-                model.ElevatorValue = value;
-                Console.WriteLine(value);
+                double normalized = value / 100;
+                model.ElevatorValue = normalized;
+                NotifyPropertyChanged("ElevatorVal");
             }
         }
 

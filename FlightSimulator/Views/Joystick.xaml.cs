@@ -159,8 +159,11 @@ namespace FlightSimulator.Views
             Elevator = deltaPos.X;
 
             // Change property in the view model
-            vm.AileronVal = Aileron;
-            vm.ElevatorVal = Elevator;
+            //vm.AileronVal = Aileron;
+            //vm.ElevatorVal = Elevator;
+            vm.AileronVal = Elevator;
+            vm.ElevatorVal = Aileron;
+
 
             knobPosition.X = deltaPos.X;
             knobPosition.Y = deltaPos.Y;
@@ -184,6 +187,8 @@ namespace FlightSimulator.Views
         private void centerKnob_Completed(object sender, EventArgs e)
         {
             Aileron = Elevator = _prevAileron = _prevElevator = 0;
+            vm.AileronVal = 0;
+            vm.ElevatorVal = 0;
             Released?.Invoke(this);
         }
 

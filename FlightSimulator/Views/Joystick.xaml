@@ -146,11 +146,11 @@
             </Canvas>
         </Canvas>
 
-        <TextBlock FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="0"></TextBlock>
+        <TextBlock FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="{Binding ThrottleVal}"></TextBlock>
         <TextBlock FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1">← aileron →</TextBlock>
         <StackPanel Grid.Row="0" Grid.Column="2">
-            <TextBlock FontSize="20" FontWeight="Bold" Text="0.0" HorizontalAlignment="Left"></TextBlock>
-            <TextBlock FontSize="20" FontWeight="Bold" Text="0.0" HorizontalAlignment="Right">
+            <TextBlock FontSize="20" FontWeight="Bold" Text="{Binding AileronVal}" HorizontalAlignment="Left"></TextBlock>
+            <TextBlock FontSize="20" FontWeight="Bold" Text="{Binding ElevatorVal}" HorizontalAlignment="Right">
                 <TextBlock.RenderTransform>
                     <RotateTransform Angle="90"/>
                 </TextBlock.RenderTransform>
@@ -195,7 +195,7 @@
             </TextBlock.LayoutTransform>
         </TextBlock>
 
-        <TextBox Text="0" Grid.Row="2" Grid.Column="2" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"
-                 VerticalAlignment="Center"></TextBox>
+        <TextBlock Text="{Binding RudderVal}" Grid.Row="2" Grid.Column="2" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"
+                 VerticalAlignment="Center"></TextBlock>
     </Grid>
 </UserControl>
