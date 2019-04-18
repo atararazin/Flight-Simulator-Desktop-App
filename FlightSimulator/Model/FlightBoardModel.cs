@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FlightSimulator.Model.TcpServer;
+using System.ComponentModel;
 
 namespace FlightSimulator.Model
 {
-    public class FlightBoardModel
+    public class FlightBoardModel : INotifyPropertyChanged
     {
         private double _lon;
         private double _lat;
@@ -17,7 +18,7 @@ namespace FlightSimulator.Model
         public FlightBoardModel()
         {
             Console.WriteLine("flightbaord trying to connect");
-            //this.srv = new InformationServer();
+            
             IClientHandler ch = new ClientHandler(this);
             this.srv = new InfoServer(5008, ch);
             this.srv.Start();
@@ -28,15 +29,28 @@ namespace FlightSimulator.Model
         public double Lon
         {
             get { return this._lon; }
-            set { }
+            set
+            {
+                this._lon = value;
+                NotifyPropertyChanged("Lon");
+            }
         }
         
         public double Lat
         {
             get { return this._lat; }
-            set { }
+            set
+            {
+                this._lat = value;
+                NotifyPropertyChanged("Lat");
+            }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        public void NotifyPropertyChanged(string propName)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        }
     }
 }
