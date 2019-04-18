@@ -152,7 +152,6 @@ namespace FlightSimulator.Views
             double distance = Math.Round(Math.Sqrt(deltaPos.X * deltaPos.X + deltaPos.Y * deltaPos.Y));
             if (distance >= canvasWidth / 2 || distance >= canvasHeight / 2)
             {
-                Console.WriteLine(deltaPos);
                 return;
             }
             Aileron = -deltaPos.Y;
