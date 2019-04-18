@@ -29,19 +29,20 @@ namespace FlightSimulator.Model.TcpServer
             listener.Start();
             Console.WriteLine("Waiting for connections...");
             Thread thread = new Thread(() => {
-                while (true)
+                //while (true)
+                //{
+                try
                 {
-                    try
-                    {
-                        TcpClient client = listener.AcceptTcpClient();
-                        Console.WriteLine("Got new connection");
-                        ch.HandleClient(client);
-                    }
-                    catch (SocketException)
-                    {
-                        break;
-                    }
+                    TcpClient client = listener.AcceptTcpClient();
+                    Console.WriteLine("Got new connection");
+                    ch.HandleClient(client);
                 }
+                catch (SocketException)
+                {
+                //break;
+                    Console.WriteLine("Client could not connect");
+                }
+                //}
                 Console.WriteLine("Server stopped");
             });
             thread.Start();
