@@ -22,6 +22,7 @@ namespace FlightSimulator.Model
             });
 
             taskClient.Start();
+            taskClient.Wait();
         }
     }
 }

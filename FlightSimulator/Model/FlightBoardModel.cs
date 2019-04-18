@@ -16,10 +16,12 @@ namespace FlightSimulator.Model
 
         public FlightBoardModel()
         {
+            Console.WriteLine("flightbaord trying to connect");
             //this.srv = new InformationServer();
             IClientHandler ch = new ClientHandler(this);
             this.srv = new InfoServer(5008, ch);
             this.srv.Start();
+            Console.WriteLine("flightboard connected as client");
         }
 
 

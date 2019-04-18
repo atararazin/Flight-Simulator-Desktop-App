@@ -43,7 +43,7 @@ namespace FlightSimulator.Model
 
         public void Clear()
         {
-            this._instructionsString = "";
+            InstructionsString = "";
         }
 
         public void NotifyPropertyChanged(string propName)

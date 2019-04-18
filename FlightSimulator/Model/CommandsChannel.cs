@@ -16,6 +16,7 @@ namespace FlightSimulator.Model
             byte[] data = Encoding.ASCII.GetBytes(command + "\r\n");
             NetworkStream stream = client?.GetStream();
             stream?.Write(data, 0, data.Length);
+            Console.WriteLine("sent to simulator:", data);
         }
 
         public static void AssignSocket()
@@ -26,7 +27,7 @@ namespace FlightSimulator.Model
             IPEndPoint ep = new IPEndPoint(ipAddr, port);
             client = new TcpClient();
             client.Connect(ep);
-            Console.WriteLine("You are connected");
+            Console.WriteLine("You are connected as a client");
         }
 
         public static void Close()

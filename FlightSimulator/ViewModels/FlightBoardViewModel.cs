@@ -17,7 +17,7 @@ namespace FlightSimulator.ViewModels
         /// </summary>
         public FlightBoardViewModel()
         {
-            this.model = new FlightBoardModel();
+            //this.model = new FlightBoardModel();
         }
 
         public double Lon

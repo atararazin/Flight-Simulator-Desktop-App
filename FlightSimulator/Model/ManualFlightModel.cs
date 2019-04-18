@@ -9,7 +9,6 @@ namespace FlightSimulator.Model
 {
     class ManualFlightModel
     {
-        private TcpClient client;
         private double _throttleVal;
         private double _rudderVal;
         private double _aileronVal;
@@ -22,8 +21,6 @@ namespace FlightSimulator.Model
         /// </summary>
         public ManualFlightModel()
         {
-            connect();
-
         }
 
 
@@ -89,33 +86,9 @@ namespace FlightSimulator.Model
             return message;
         }
 
-        /// <summary>
-        /// The function sends the message
-        /// </summary>
-        /// <param name="message"></param>
         private void SendMessage(string message)
         {
-            Byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
-
-            if (client == null && this.trials > 0 )
-            {
-                connect();
-                trials--;
-            }
-            NetworkStream stream = client?.GetStream();
-            stream?.Write(data, 0, data.Length);
-        }
-
-        private void connect()
-        {
-            try
-            {
-                client = new TcpClient("127.0.0.1", 5402);
-            }
-            catch
-            {
-                client = null;
-            }
+            CommandsChannel.SendCommands(message);
         }
 
     }
