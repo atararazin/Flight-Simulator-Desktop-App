@@ -12,9 +12,9 @@
             <ColumnDefinition Width="80"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Canvas  x:Name="Base" Margin="0" Width="340" Height="340" Grid.Row="1" Grid.Column="1">
@@ -146,17 +146,25 @@
             </Canvas>
         </Canvas>
 
-        <TextBlock FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="{Binding ThrottleVal}"></TextBlock>
+        <TextBlock FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="{Binding ThrottleVal}"/>
         <TextBlock FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1">← aileron →</TextBlock>
-        <StackPanel Grid.Row="0" Grid.Column="2">
-            <TextBlock FontSize="20" FontWeight="Bold" Text="{Binding AileronVal}" HorizontalAlignment="Left"></TextBlock>
-            <TextBlock FontSize="20" FontWeight="Bold" Text="{Binding ElevatorVal}" HorizontalAlignment="Right">
-                <TextBlock.RenderTransform>
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock FontSize="20" FontWeight="Bold" Text="{Binding AileronVal}" Grid.Column="0" Grid.Row="0"/>
+            <TextBlock FontSize="20" FontWeight="Bold" Text="{Binding ElevatorVal}" Grid.Row="1" Grid.Column="1">
+                <TextBlock.LayoutTransform>
                     <RotateTransform Angle="90"/>
-                </TextBlock.RenderTransform>
+                </TextBlock.LayoutTransform>
             </TextBlock>
-        </StackPanel>
-
+        </Grid>
+        
         <StackPanel Grid.Row="2" Grid.Column="1">
             <Slider Value="{Binding RudderVal}" Width="300" Orientation="Horizontal" HorizontalAlignment="Center" 
                     VerticalAlignment="Bottom" IsSnapToTickEnabled="True" 
