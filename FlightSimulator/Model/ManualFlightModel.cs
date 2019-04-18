@@ -14,6 +14,7 @@ namespace FlightSimulator.Model
         private double _rudderVal;
         private double _aileronVal;
         private double _elevatorVal;
+        private int trials = 10; // Maximum retrial attempts
 
         /// <summary>
         /// Constructor. Connect to the simulator sever port.
@@ -21,14 +22,7 @@ namespace FlightSimulator.Model
         /// </summary>
         public ManualFlightModel()
         {
-            try
-            {
-                client = new TcpClient("127.0.0.1", 5402);
-            }
-            catch
-            {
-                client = null;
-            }
+            connect();
 
         }
 
@@ -102,8 +96,26 @@ namespace FlightSimulator.Model
         private void SendMessage(string message)
         {
             Byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
+
+            if (client == null && this.trials > 0 )
+            {
+                connect();
+                trials--;
+            }
             NetworkStream stream = client?.GetStream();
             stream?.Write(data, 0, data.Length);
+        }
+
+        private void connect()
+        {
+            try
+            {
+                client = new TcpClient("127.0.0.1", 5402);
+            }
+            catch
+            {
+                client = null;
+            }
         }
 
     }
