@@ -32,6 +32,16 @@ namespace FlightSimulator.ViewModels
             }
         }
 
+        public bool VM_IsUserTyping
+        {
+            get { return model.IsUserTyping; }
+            set
+            {
+                model.IsUserTyping = value;
+                NotifyPropertyChanged("IsUserTyping");
+            }
+        }
+
         private ICommand _okCommand;
         public ICommand OkCommand
         {

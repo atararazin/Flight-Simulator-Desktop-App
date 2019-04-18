@@ -28,5 +28,15 @@ namespace FlightSimulator.Views
             AutoPilotViewModel vm = new AutoPilotViewModel(new AutoPilotModel());
             this.DataContext = vm;
         }
+
+        private void Trigger_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
+        }
+
+        private void Trigger_SourceUpdated_1(object sender, DataTransferEventArgs e)
+        {
+
+        }
     }
 }

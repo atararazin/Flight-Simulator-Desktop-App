@@ -10,11 +10,12 @@ namespace FlightSimulator.Model
 {
     static class CommandsChannel
     {
-        public static TcpClient client;
+        public static TcpClient Client;
+
         public static void SendCommands(string command)
         {
             byte[] data = Encoding.ASCII.GetBytes(command + "\r\n");
-            NetworkStream stream = client?.GetStream();
+            NetworkStream stream = Client?.GetStream();
             stream?.Write(data, 0, data.Length);
             Console.WriteLine("sent to simulator:", data);
         }
@@ -25,14 +26,14 @@ namespace FlightSimulator.Model
             string ip = Properties.Settings.Default.FlightServerIP;
             IPAddress ipAddr = IPAddress.Parse(ip);
             IPEndPoint ep = new IPEndPoint(ipAddr, port);
-            client = new TcpClient();
-            client.Connect(ep);
+            Client = new TcpClient();
+            Client.Connect(ep);
             Console.WriteLine("You are connected as a client");
         }
 
         public static void Close()
         {
-            client.Close();
+            Client.Close();
         }
     }
 }

@@ -16,11 +16,22 @@ namespace FlightSimulator.Model
         private string _instructionsString;
         public string InstructionsString
         {
-            get { return this._instructionsString; }
+            get { return _instructionsString; }
             set
             {
-                this._instructionsString = value;
+                _instructionsString = value;
                 NotifyPropertyChanged("Instructions");
+            }
+        }
+
+        private bool _isUserTyping;
+        public bool IsUserTyping
+        {
+            get { return _isUserTyping; }
+            set
+            {
+                _isUserTyping = value;
+                NotifyPropertyChanged("IsUserTyping");
             }
         }
 
@@ -31,14 +42,16 @@ namespace FlightSimulator.Model
         }
 
 
-        public void Send()
+        public async void Send()
         {
             this._instructionsList = turnStringintoList(this._instructionsString);
             foreach (string i in this._instructionsList)
             {
                 CommandsChannel.SendCommands(i);
+                await Task.Delay(2000);
                 Console.WriteLine(i);
             }
+            IsUserTyping = false;
         }
 
         public void Clear()
