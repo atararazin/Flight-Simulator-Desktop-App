@@ -16,7 +16,7 @@ namespace FlightSimulator.Model
             byte[] data = Encoding.ASCII.GetBytes(command + "\r\n");
             NetworkStream stream = client?.GetStream();
             stream?.Write(data, 0, data.Length);
-            Console.WriteLine("sent to simulator:", data);
+            Console.WriteLine("sent to simulator: " +  command);
         }
 
         public static void AssignSocket()
