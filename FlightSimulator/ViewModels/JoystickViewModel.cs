@@ -19,7 +19,7 @@ namespace FlightSimulator.ViewModels
 
         public double ThrottleVal
         {
-            get { return model.ThrottleValue; }
+            get { return Math.Round(model.ThrottleValue, 2); }
             set
             {
                 model.ThrottleValue = value;
@@ -29,7 +29,7 @@ namespace FlightSimulator.ViewModels
 
         public double RudderVal
         {
-            get { return model.RudderValue; }
+            get { return Math.Round(model.RudderValue, 2); }
             set
             {
                 model.RudderValue = value;
@@ -42,7 +42,7 @@ namespace FlightSimulator.ViewModels
             get { return Math.Round(model.AileronValue, 2); }
             set
             {
-                double normalized = value / 100;
+                double normalized = value / 124;
                 model.AileronValue = normalized;
                 NotifyPropertyChanged("AileronVal");
             }
@@ -53,7 +53,7 @@ namespace FlightSimulator.ViewModels
             get { return Math.Round(model.ElevatorValue, 2); }
             set
             {
-                double normalized = value / 100;
+                double normalized = value / 124;
                 model.ElevatorValue = normalized;
                 NotifyPropertyChanged("ElevatorVal");
             }
