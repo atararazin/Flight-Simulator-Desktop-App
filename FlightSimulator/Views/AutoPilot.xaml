@@ -12,8 +12,11 @@
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding VM_IsUserTyping, Mode=TwoWay, UpdateSourceTrigger=Explicit}">
+                        <DataTrigger Binding="{Binding VM_IsUserDone}" Value="False">
                             <Setter Property="Background" Value="LightPink"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding VM_IsUserDone}" Value="True">
+                            <Setter Property="Background" Value="White"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>

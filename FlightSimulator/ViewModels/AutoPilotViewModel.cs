@@ -32,13 +32,13 @@ namespace FlightSimulator.ViewModels
             }
         }
 
-        public bool VM_IsUserTyping
+        public bool VM_IsUserDone
         {
-            get { return model.IsUserTyping; }
+            get { return model.IsUserDone; }
             set
             {
-                model.IsUserTyping = value;
-                NotifyPropertyChanged("IsUserTyping");
+                model.IsUserDone = value;
+                NotifyPropertyChanged("IsUserDone");
             }
         }
 
