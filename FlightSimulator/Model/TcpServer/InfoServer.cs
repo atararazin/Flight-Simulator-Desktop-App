@@ -57,6 +57,7 @@ namespace FlightSimulator.Model.TcpServer
                 TcpClient client = listener.AcceptTcpClient();
                 Console.WriteLine("Got new connection");
                 ch.HandleClient(client);
+                listener.Stop();
             }
             catch (SocketException)
             {
