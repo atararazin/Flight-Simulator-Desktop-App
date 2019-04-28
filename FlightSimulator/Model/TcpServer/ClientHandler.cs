@@ -44,8 +44,7 @@ namespace FlightSimulator.Model.TcpServer
                             string[] values = raw.Split(',');
                             double lon = Convert.ToDouble(values[0]);
                             double lat = Convert.ToDouble(values[1]);
-                            //Console.WriteLine(lon);
-                            //Console.WriteLine(lat);
+
                             this.model.Lat = lat;
                             this.model.Lon = lon;
                         }
