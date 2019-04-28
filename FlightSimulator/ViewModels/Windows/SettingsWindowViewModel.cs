@@ -23,9 +23,6 @@ namespace FlightSimulator.ViewModels.Windows
             VM_FlightServerIP = model.FlightServerIP;
             VM_FlightInfoPort = model.FlightInfoPort;
             VM_FlightCommandPort = model.FlightCommandPort;
-            Console.WriteLine("command:", VM_FlightCommandPort);
-            Console.WriteLine("info:", VM_FlightInfoPort);
-            Console.WriteLine("ip:", VM_FlightServerIP);
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
             {
                 NotifyPropertyChanged("VM_" + e.PropertyName);
