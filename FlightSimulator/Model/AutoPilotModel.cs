@@ -24,14 +24,14 @@ namespace FlightSimulator.Model
             }
         }
 
-        private bool _isUserDone;
-        public bool IsUserDone
+        private string _isTyping;
+        public string IsTyping
         {
-            get { return _isUserDone; }
+            get { return _isTyping; }
             set
             {
-                _isUserDone = value;
-                NotifyPropertyChanged("IsUserDone");
+                _isTyping = value;
+                NotifyPropertyChanged("IsTyping");
             }
         }
 
@@ -51,13 +51,13 @@ namespace FlightSimulator.Model
                 await Task.Delay(2000);
                 Console.WriteLine(i);
             }
-            IsUserDone = true;
+            IsTyping = "White";
         }
 
         public void Clear()
         {
             InstructionsString = "";
-            IsUserDone = true;
+            IsTyping = "White";
         }
 
         public void NotifyPropertyChanged(string propName)

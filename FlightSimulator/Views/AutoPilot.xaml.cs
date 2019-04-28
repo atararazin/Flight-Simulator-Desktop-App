@@ -22,21 +22,11 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class AutoPilot : UserControl
     {
+        private AutoPilotViewModel vm = new AutoPilotViewModel(new AutoPilotModel());
         public AutoPilot()
         {
             InitializeComponent();
-            AutoPilotViewModel vm = new AutoPilotViewModel(new AutoPilotModel());
             this.DataContext = vm;
-        }
-
-        private void Trigger_SourceUpdated(object sender, DataTransferEventArgs e)
-        {
-
-        }
-
-        private void Trigger_SourceUpdated_1(object sender, DataTransferEventArgs e)
-        {
-
-        }
+        }       
     }
 }

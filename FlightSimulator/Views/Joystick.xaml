@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+ <Viewbox>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80"></ColumnDefinition>
@@ -206,4 +207,5 @@
         <TextBlock Text="{Binding RudderVal}" Grid.Row="2" Grid.Column="2" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"
                  VerticalAlignment="Center"></TextBlock>
     </Grid>
+ </Viewbox>
 </UserControl>

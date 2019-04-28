@@ -80,6 +80,7 @@
     <Compile Include="Model\TcpServer\InfoServer.cs" />
     <Compile Include="ViewModels\AutoPilotViewModel.cs" />
     <Compile Include="ViewModels\BaseNotify.cs" />
+    <Compile Include="ViewModels\BooleanToColorConverter.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\FlightBoardViewModel.cs" />
     <Compile Include="ViewModels\JoystickViewModel.cs" />

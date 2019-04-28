@@ -21,7 +21,7 @@ namespace FlightSimulator.Model
             
             IClientHandler ch = new ClientHandler(this);
             this.srv = new InfoServer(5008, ch);
-            this.srv.Start();
+            //this.srv.Start();
             Console.WriteLine("flightboard connected as client");
         }
 

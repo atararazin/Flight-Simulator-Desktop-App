@@ -28,17 +28,18 @@ namespace FlightSimulator.ViewModels
             set
             {
                 model.InstructionsString = value;
+                VM_IsTyping = "Pink";
                 NotifyPropertyChanged("Instructions");
             }
         }
 
-        public bool VM_IsUserDone
+        public string VM_IsTyping
         {
-            get { return model.IsUserDone; }
+            get { return model.IsTyping; }
             set
             {
-                model.IsUserDone = value;
-                NotifyPropertyChanged("IsUserDone");
+                model.IsTyping = value;
+                NotifyPropertyChanged("IsTyping");
             }
         }
 
@@ -68,5 +69,6 @@ namespace FlightSimulator.ViewModels
             model.Clear();
         }
 
+        
     }
 }
