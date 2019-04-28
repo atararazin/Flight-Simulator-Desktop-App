@@ -13,15 +13,14 @@ namespace FlightSimulator.Model
         private double _lon;
         private double _lat;
         //private InformationServer srv;
-        private InfoServer srv;
+        //private InfoServer srv;
 
         public FlightBoardModel()
         {
-            Console.WriteLine("flightbaord trying to connect");
             
             IClientHandler ch = new ClientHandler(this);
-            this.srv = new InfoServer(Properties.Settings.Default.FlightInfoPort, Properties.Settings.Default.FlightServerIP , ch);
-            this.srv.Start();
+            InfoServer.RegisterClientHandler(ch);
+
             Console.WriteLine("flightboard connected as client");
         }
 
