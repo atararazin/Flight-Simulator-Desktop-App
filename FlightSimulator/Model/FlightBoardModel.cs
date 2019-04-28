@@ -20,8 +20,8 @@ namespace FlightSimulator.Model
             Console.WriteLine("flightbaord trying to connect");
             
             IClientHandler ch = new ClientHandler(this);
-            this.srv = new InfoServer(5008, ch);
-            //this.srv.Start();
+            this.srv = new InfoServer(Properties.Settings.Default.FlightInfoPort, Properties.Settings.Default.FlightServerIP , ch);
+            this.srv.Start();
             Console.WriteLine("flightboard connected as client");
         }
 
