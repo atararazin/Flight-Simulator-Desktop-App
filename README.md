@@ -18,6 +18,11 @@ In order for this program to actually do anything, you have to download the Flig
 
 ## How To Run Flight Gear
 Before even starting our program, we have to start the Flight Gear. A few things you need to know in order for things to work properly:
-- I uploaded a file called generic_small.xml. This needs to be downloaded and put in the folder on you computer.
-- We need to create
+- I uploaded a file called generic_small.xml. This needs to be downloaded and put into the following folder on your computer: 
+C:\Program Files\FlightGear 2018.3.1\data\Protocol
+- In order for the Flight Gear to have the necessary sockets, we need to go onto the Flight Gear program, into Settings, then scroll down to additional settings and paste the following two lines with a newline between them: `--telnet=socket,in,10,127.0.0.1,5402,tcp` and 
+`--generic=socket,out,10,127.0.0.1,5400,tcp,generic_small`. 
+- Click Fly! 
 
+## How To Run Flight Simulator
+Ok, now on to our program! 
