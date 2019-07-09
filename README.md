@@ -27,7 +27,8 @@ optional.
 
 ## How To Run Flight Simulator
 Ok, now on to our program! 
-The first thing we have to do is connect to the Flight Gear. Doing that is simple - just click the Connect button! There is the option of
+Open the executable file called FlightSimulator. 
+The first thing we have to do upon opening our program is connect to the Flight Gear. Doing that is simple - just click the Connect button! There is the option of
 changing the ip and port using the Settings, if you would like a specific port and IP. 
 
 Now, is the interesting part of the program. First, you should see on your left the route that the plane is taking, with the coordinates being the longitude and latitude of the location. 
@@ -35,7 +36,11 @@ Next, you can control the plane with either the joystick or by manually inputtin
 sliders and fly the plane! 
 ### Instructions for AutoPilot
 Rudder - `set controls/flight/rudder <val>`
+
 Throttle - `set controls/engines/current-engine/throttle`
+
 Elevator - `set controls/flight/elevator <val>`
+
 Aileron - `set controls/flight/aileron <val>`
+
 where val is between 1 and -1
